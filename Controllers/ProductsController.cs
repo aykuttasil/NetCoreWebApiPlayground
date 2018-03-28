@@ -34,7 +34,7 @@ namespace NetCoreWebApiPlayground.Controllers
         }
 
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetProduct")]
         public IActionResult Get(int id)
         {
             var product = db.Products.FirstOrDefault(t => t.Id == id);
@@ -46,9 +46,17 @@ namespace NetCoreWebApiPlayground.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody]Product newProduct)
         {
-            //TODO:Yazılacak
+            if (newProduct == null)
+                return BadRequest();
+
+            db.Products.Add(newProduct);
+            db.SaveChanges();
+
+            // Veritabanına kayıt eklendikten sonra ilgili kaydı göstermek için 
+            // GetProduct endpointine yönlendirme yapıyoruz.
+            return CreatedAtRoute("GetProduct", new { id = newProduct.Id });
         }
 
         [HttpPut("{id}")]
