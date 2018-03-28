@@ -56,7 +56,7 @@ namespace NetCoreWebApiPlayground.Controllers
 
             // Veritabanına kayıt eklendikten sonra ilgili kaydı göstermek için 
             // GetProduct endpointine yönlendirme yapıyoruz.
-            return CreatedAtRoute("GetProduct", new { id = newProduct.Id });
+            return CreatedAtRoute("GetProduct", new { id = newProduct.Id }, newProduct);
         }
 
         [HttpPut("{id}")]
