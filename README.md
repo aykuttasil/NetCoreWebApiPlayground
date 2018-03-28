@@ -19,3 +19,23 @@ dotnet add package Microsoft.EntityFrameworkCore.InMemory
 ```
 
 ---
+
+- Static asset lerin kullanımı için
+
+```dotnet
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+ 
+    // Statik assetlerin kullanımı için ekliyoruz
+    app.UseStaticFiles();
+    app.UseMvc();
+}
+```
+
+> http://localhost:5560/index.html
+
+---

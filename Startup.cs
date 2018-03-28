@@ -39,6 +39,7 @@ namespace NetCoreWebApiPlayground
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseMvc();
         }
     }
