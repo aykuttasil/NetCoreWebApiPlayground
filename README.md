@@ -90,3 +90,6 @@ public void Configure(IApplicationBuilder app,HostingEnvironment env)
 > http://localhost:5560/swagger/
 
 ---
+
+> Sources
+- http://www.buraksenyurt.com/post/net-core-2-0-ile-basit-bir-web-api-gelistirmek
